@@ -6,7 +6,7 @@
 <body>
 
     <article>
-        <h1><a href="/post">First Post</a></h1>
+        <h1><a href="/posts/first-post">First Post</a></h1>
         <p>Cras malesuada, enim nec blandit aliquam, eros diam laoreet dolor,
             id euismod magna sem ut elit. Praesent laoreet quis dolor hendrerit blandit.
             Sed blandit mattis felis. Nullam vel sollicitudin enim. Curabitur congue finibus leo
@@ -19,7 +19,7 @@
     </article>
 
     <article>
-        <h1><a href="/post">Second Post</a></h1>
+        <h1><a href="/posts/second-post">Second Post</a></h1>
         <p>Cras malesuada, enim nec blandit aliquam, eros diam laoreet dolor,
             id euismod magna sem ut elit. Praesent laoreet quis dolor hendrerit blandit.
             Sed blandit mattis felis. Nullam vel sollicitudin enim. Curabitur congue finibus leo
