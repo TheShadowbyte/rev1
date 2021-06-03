@@ -4,6 +4,7 @@
 namespace App\Models;
 
 
+use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
@@ -35,18 +36,22 @@ class Post {
 
     /**
      * @return Collection
+     * @throws Exception
      */
     public static function all() {
 
-        return collect(File::files(resource_path("posts")))
-            ->map(fn($file) => YamlFrontMatter::parseFile($file))
-            ->map(fn($document) => new Post(
-                $document->title,
-                $document->slug,
-                $document->excerpt,
-                $document->date,
-                $document->body()
-            ));
+        return cache()->rememberForever('posts.all', function () {
+            return collect(File::files(resource_path("posts")))
+                ->map(fn($file) => YamlFrontMatter::parseFile($file))
+                ->map(fn($document) => new Post(
+                    $document->title,
+                    $document->slug,
+                    $document->excerpt,
+                    $document->date,
+                    $document->body()
+                ))
+                ->sortByDesc('date');
+        });
 
     }
 
@@ -54,6 +59,7 @@ class Post {
      * @param $slug
      *
      * @return mixed
+     * @throws Exception
      */
     public static function find( $slug ) {
 
