@@ -5,30 +5,19 @@
 
 <body>
 
-    <article>
-        <h1><a href="/posts/first-post">First Post</a></h1>
-        <p>Cras malesuada, enim nec blandit aliquam, eros diam laoreet dolor,
-            id euismod magna sem ut elit. Praesent laoreet quis dolor hendrerit blandit.
-            Sed blandit mattis felis. Nullam vel sollicitudin enim. Curabitur congue finibus leo
-            sed iaculis. Curabitur aliquet commodo viverra. Nam egestas nec quam vitae vestibulum.
-            Nullam arcu urna, malesuada eu vulputate non, lobortis a orci. Proin rutrum felis arcu,
-            sit amet vehicula felis hendrerit sit amet. Phasellus blandit tempor est, eget rutrum urna
-            lobortis ut. Etiam dolor urna, volutpat non tellus nec, lacinia mollis eros. Aliquam
-            aliquam augue neque, vel imperdiet libero interdum feugiat. Proin vitae libero justo.
-            Fusce cursus imperdiet lacus, id vehicula mauris tristique in.</p>
-    </article>
+    <h1>All Posts</h1>
 
-    <article>
-        <h1><a href="/posts/second-post">Second Post</a></h1>
-        <p>Cras malesuada, enim nec blandit aliquam, eros diam laoreet dolor,
-            id euismod magna sem ut elit. Praesent laoreet quis dolor hendrerit blandit.
-            Sed blandit mattis felis. Nullam vel sollicitudin enim. Curabitur congue finibus leo
-            sed iaculis. Curabitur aliquet commodo viverra. Nam egestas nec quam vitae vestibulum.
-            Nullam arcu urna, malesuada eu vulputate non, lobortis a orci. Proin rutrum felis arcu,
-            sit amet vehicula felis hendrerit sit amet. Phasellus blandit tempor est, eget rutrum urna
-            lobortis ut. Etiam dolor urna, volutpat non tellus nec, lacinia mollis eros. Aliquam
-            aliquam augue neque, vel imperdiet libero interdum feugiat. Proin vitae libero justo.
-            Fusce cursus imperdiet lacus, id vehicula mauris tristique in.</p>
-    </article>
+    <?php foreach ( $posts as $post ) : ?>
+        <article>
+            <h2>
+                <a href="/posts/<?= $post->slug ?>">
+                    <?= $post->title; ?>
+                </a>
+            </h2>
+            <h5>Published on <?= $post->date; ?></h5>
+            <p><?= $post->excerpt; ?></p>
+        </article>
+    <hr/>
+    <?php endforeach; ?>
 
 </body>
