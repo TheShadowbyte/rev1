@@ -1,3 +1,11 @@
+<?php
+
+use App\Models\Post;
+
+/**
+ * @var Post $post
+ */
+?>
 <!doctype html>
 
 <title>My Site</title>
