@@ -1,14 +1,12 @@
-<!doctype html>
+@extends('layout')
 
-<title>My Site</title>
-<link rel="stylesheet" href="/rev1.css" />
-
-<body>
+@section('content')
 
     <h1>All Posts</h1>
 
     @foreach ( $posts as $post )
-        <article>
+
+        <article class="{{ $loop->even ? 'even' : 'odd' }}">
             <h2>
                 <a href="/posts/{{ $post->slug }}">
                     {{ $post->title }}
@@ -17,7 +15,9 @@
             <h5>Published on {{ $post->date }}</h5>
             <p>{{ $post->excerpt }}</p>
         </article>
-    <hr/>
+
+        <hr/>
+
     @endforeach
 
-</body>
+@endsection

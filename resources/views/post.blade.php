@@ -1,17 +1,6 @@
-<?php
+@extends('layout')
 
-use App\Models\Post;
-
-/**
- * @var Post $post
- */
-?>
-<!doctype html>
-
-<title>My Site</title>
-<link rel="stylesheet" href="/rev1.css" />
-
-<body>
+@section('content')
 
     <article>
         <h2>
@@ -24,4 +13,4 @@ use App\Models\Post;
     </article>
     <a href="/posts">Go Back</a>
 
-</body>
+@endsection
