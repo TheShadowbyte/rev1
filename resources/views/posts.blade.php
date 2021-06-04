@@ -11,11 +11,11 @@
         <article>
             <h2>
                 <a href="/posts/<?= $post->slug ?>">
-                    <?= $post->title; ?>
+                    {{ $post->title }}
                 </a>
             </h2>
-            <h5>Published on <?= $post->date; ?></h5>
-            <p><?= $post->excerpt; ?></p>
+            <h5>Published on {{ $post->date }}</h5>
+            <p>{{ $post->excerpt }}</p>
         </article>
     <hr/>
     <?php endforeach; ?>
