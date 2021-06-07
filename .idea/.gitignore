@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../:\Users\dimit\PhpstormProjects\PHP Storm Docker\.idea/dataSources/
+/../../../../../../../../:\Users\dimit\Documents\GitHub\laravel-tut\rev1\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/

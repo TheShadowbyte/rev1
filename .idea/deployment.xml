@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Docker PHP Server">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Docker PHP Server" exclude=".svn;.cvs;.DS_Store;.git;.hg;*.hprof;*.pyc">
     <serverData>
       <paths name="Docker PHP Server">
         <serverdata>
