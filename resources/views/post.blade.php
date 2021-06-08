@@ -4,9 +4,7 @@
 
     <article>
         <h2>
-            <a href="/posts/{{ $post->slug }}">
-                {{ $post->title }}
-            </a>
+            {{ $post->title }}
         </h2>
         <h5>Published on {{ $post->date }}</h5>
         <p>{{ $post->body }}</p>
