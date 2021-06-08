@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Mews\Purifier\Facades\Purifier;
 
-class Post extends Model
+class UserSignature extends Model
 {
     use HasFactory;
 
-    public function setBodyAttribute($body) {
-        $this->attributes['body'] = Purifier::clean($body);
+    public function setContentAttribute($content) {
+        $this->attributes['content'] = Purifier::clean($content);
     }
 
 }

@@ -12,7 +12,7 @@
                     {{ $post->title }}
                 </a>
             </h2>
-            <h5>Published on {{ $post->date }}</h5>
+            <h5>Published on {{ $post->created_at }}</h5>
             <p>{{ $post->excerpt }}</p>
         </article>
 
