@@ -15,6 +15,7 @@ class CreateUserSignaturesTable extends Migration
     {
         Schema::create('user_signatures', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->text('content');
             $table->timestamps();
         });

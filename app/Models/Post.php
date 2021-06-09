@@ -4,14 +4,40 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Mews\Purifier\Facades\Purifier;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Post extends Model
 {
     use HasFactory;
 
-    public function setBodyAttribute($body) {
-        $this->attributes['body'] = Purifier::clean($body);
+    protected $fillable = ['title', 'excerpt', 'body'];
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public static function find( $id ) {
+
+        return static::all()->firstWhere('id', $id);
+
+    }
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public static function findOrFail( $id ) {
+
+        $post = static::find($id);
+
+        if ( !$post ) {
+            throw new ModelNotFoundException();
+        }
+
+        return $post;
+
     }
 
 }

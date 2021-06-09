@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\UserSignature;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,7 @@ Route::get('/posts', function () {
 
 });
 
-Route::get('posts/{post}', function ($id) {
+Route::get('posts/{id}', function ($id) {
 
     return view('post', [
         'post' => Post::findOrFail($id)
@@ -37,11 +38,11 @@ Route::get('posts/{post}', function ($id) {
 
 });
 
-Route::get('profile/{id}', function ($id) {
+Route::get('profile/{user:slug}', function (User $user) {
 
     return view('profile', [
-        'user' => User::findOrFail($id),
-        'user_signature' => \App\Models\UserSignature::findorFail($id)
+        'user' => $user,
+        'user_signature' => UserSignature::find($user->id)
     ]);
 
 });

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -40,4 +41,38 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @var mixed
+     */
+    private $id;
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public static function find( $id ) {
+
+        return static::all()->firstWhere('id', $id);
+
+    }
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public static function findOrFail( $id ) {
+
+        $user = static::find($id);
+
+        if ( !$user ) {
+            throw new ModelNotFoundException();
+        }
+
+        return $user;
+
+    }
+
 }
