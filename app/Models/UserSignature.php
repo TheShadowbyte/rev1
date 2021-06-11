@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Mews\Purifier\Facades\Purifier;
 
 class UserSignature extends Model
@@ -50,6 +51,13 @@ class UserSignature extends Model
 
         return $user_signature;
 
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
     }
 
 }

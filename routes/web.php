@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\UserSignature;
@@ -30,10 +31,10 @@ Route::get('/posts', function () {
 
 });
 
-Route::get('posts/{id}', function ($id) {
+Route::get('posts/{post:slug}', function (Post $post) {
 
     return view('post', [
-        'post' => Post::findOrFail($id)
+        'post' => $post
     ]);
 
 });
@@ -43,6 +44,22 @@ Route::get('profile/{user:slug}', function (User $user) {
     return view('profile', [
         'user' => $user,
         'user_signature' => UserSignature::find($user->id)
+    ]);
+
+});
+
+Route::get('/categories', function () {
+
+    return view('categories', [
+        'categories' => Category::all()
+    ]);
+
+});
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+
+    return view('posts', [
+        'posts' => $category->posts()
     ]);
 
 });
