@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/posts', function () {
 
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => Post::with('category')->get()
     ]);
 
 });
